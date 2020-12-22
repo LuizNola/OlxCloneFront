@@ -54,8 +54,14 @@ nav{
         margin-left: 20px;
         margin-right: 20px;
 
-        a{
+        a, button{
+            border: 0;
+            outline: none;
+
+            background: none;
             color: #000;
+
+            cursor:pointer;
             font-size: 14px;
 
             &:hover{

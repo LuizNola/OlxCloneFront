@@ -6,11 +6,15 @@ export const isLogged = () =>{
     
 }
 
-export const login = (token, remenberPass = false) =>{
+export const doLogin = (token, remenberPass = false) =>{
     if(remenberPass){
         cookie.set('token', token, {expires: 999})
     }else{
         cookie.set('token', token)
     }
     
+}
+
+export const doLogout = () => {
+    cookie.remove('token')
 }

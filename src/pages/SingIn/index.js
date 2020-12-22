@@ -1,91 +1,76 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import useApi from '../../helpers/olxAPI'
-import {login} from '../../helpers/AuthHendler'
+import { LoginArea } from './styled';
+import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents'
+import useApi from '../../helpers/olxAPI';
+import { doLogin } from '../../helpers/AuthHendler';
 
-import { LoginArea }  from './styled'
-import { PageContainer, PageTitle } from '../../components/MainComponents'
-
-function SingIn(){
-
+const SignIn = () => {
     const api = useApi();
-    
-    const [email, SetEmail] = useState('');
-    const [pass, SetPass] = useState('');
-    const [remenberPass, SetRemenberPass] = useState(false);
-    const [disabled, SetDisabled] = useState(false);
-    const [error, SetError] = useState('')
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        SetDisabled(true);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rememberPassword, setRememberPassword] = useState(false);
+    const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState('');
 
-        const json = await api.login(email, pass)
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setDisabled(true);
+        setError('');
 
-        if(json.error){
-            SetError(json.error)
-            console.log(error)
-        }else{
-            login(json.token, remenberPass)
+        const json = await api.login(email, password);
+
+        if (json.error) {
+            setError(json.error);
+        } else {
+            doLogin(json.token, rememberPassword);
             window.location.href = '/';
-            
         }
-        SetDisabled(false)
+
+        setDisabled(false);
     }
 
-   
-    return(
-        <>
-            <PageContainer>
-                <PageTitle>Login</PageTitle>
-                <LoginArea>
-                    <form onSubmit={handleSubmit}>
-                        <label className="area">
-                            <div className="area-title">E-Mail</div>
-                            <div className="area-input">
-                                <input 
-                                 type="email"
-                                 disabled = {disabled}
-                                 value = {email}
-                                 onChange={e =>SetEmail(e.target.value)}
-                                 />
-                            </div>
-                        </label>
+    return (
+        <PageContainer>
+            <PageTitle>Login</PageTitle>
 
-                        <label className="area">
-                            <div className="area-title">Senha</div>
-                            <div className="area-input">
-                                <input 
-                                type="password" 
-                                disabled = {disabled}
-                                value = {pass}
-                                onChange={e =>SetPass(e.target.value)}
-                                />
-                            </div>
-                        </label>
+            <LoginArea>
+                {error &&
+                    <ErrorMessage>{error}</ErrorMessage>
+                }
 
-                        <label className="area">
-                            <div className="area-title">Lembrar senha</div>
-                            <div className="area-input">
-                                <input 
-                                type="checkbox" 
-                                disabled = {disabled}
-                                checked = {remenberPass}
-                                onChange = {()=>SetRemenberPass(!remenberPass)}
-                                />
-                            </div>
-                        </label>
+                <form onSubmit={handleSubmit}>
+                    <label className="area">
+                        <div className="area--title">E-mail</div>
+                        <div className="area--input">
+                            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} disabled={disabled} required />
+                        </div>
+                    </label>
 
-                        <label className="area">
-                            <div className="area-title"></div>
-                            <div className="area-input">
-                                <button disabled = {disabled}>Entrar</button>
-                            </div>
-                        </label>
-                    </form>
-                </LoginArea>
-            </PageContainer>
-        </>
-    )
+                    <label className="area">
+                        <div className="area--title">Senha</div>
+                        <div className="area--input">
+                            <input type="password" value={password} onChange={e=>setPassword(e.target.value)} disabled={disabled} required />
+                        </div>
+                    </label>
+
+                    <label className="area">
+                        <div className="area--title">Lembrar Senha?</div>
+                        <div className="area--input">
+                            <input type="checkbox" checked={rememberPassword} onChange={()=>setRememberPassword(!rememberPassword)} disabled={disabled} />
+                        </div>
+                    </label>
+
+                    <label className="area">
+                        <div className="area--title"></div>
+                        <div className="area--input">
+                            <button disabled={disabled}>Fazer Login</button>
+                        </div>
+                    </label>
+                </form>
+            </LoginArea>
+        </PageContainer>
+    );
 }
-export default SingIn;
+
+export default SignIn;
