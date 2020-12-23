@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LoginArea } from './styled';
+import { PageArea } from './styled';
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents'
 import useApi from '../../helpers/olxAPI';
 import { doLogin } from '../../helpers/AuthHendler';
@@ -34,7 +34,7 @@ const SignIn = () => {
         <PageContainer>
             <PageTitle>Login</PageTitle>
 
-            <LoginArea>
+            <PageArea>
                 {error &&
                     <ErrorMessage>{error}</ErrorMessage>
                 }
@@ -68,7 +68,7 @@ const SignIn = () => {
                         </div>
                     </label>
                 </form>
-            </LoginArea>
+            </PageArea>
         </PageContainer>
     );
 }

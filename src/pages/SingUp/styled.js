@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginArea = styled.div`
+export const PageArea = styled.div`
     
     form{
         background-color: #fff;
