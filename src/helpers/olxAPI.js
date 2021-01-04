@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import qs from 'qs';
 
 const BASEAPI = 'http://alunos.b7web.com.br:501';
-
+//post
 const apiFetchPost = async (endpoint, body) => {
 
     if (!body.token) {
@@ -31,7 +31,7 @@ const apiFetchPost = async (endpoint, body) => {
 
     return json;
 }
-
+//get
 const apiFetchGet = async (endpoint, body = []) => {
 
     if (!body.token) {
@@ -53,7 +53,7 @@ const apiFetchGet = async (endpoint, body = []) => {
 
     return json;
 }
-
+//file
 const apiFetchFile = async (endpoint, body) => {
     if (!body.token) {
         let token = Cookies.get('token');
@@ -113,7 +113,17 @@ const OlxAPI = {
             options
         );
         return json;
-    }
+    },
+
+    getAd:async (id, other = false) => {
+        const json = await apiFetchGet(
+            '/ad/item',
+            {id, other}
+        )
+
+        return json
+
+    },
     
 }
 

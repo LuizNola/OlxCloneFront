@@ -6,6 +6,7 @@ import About from './pages/About/index'
 import NotFound from './pages/NotFound/index'
 import SingIn from './pages/SingIn/index'
 import SingUp from './pages/SingUp/index'
+import AdPage from './pages/AdPage/index'
 
 export default () =>{
     return(
@@ -24,6 +25,10 @@ export default () =>{
         
         <Route exact path="/signup">
             <SingUp/>
+        </Route>
+
+        <Route exact path="/ad/:id">
+            <AdPage />
         </Route>
 
         <Route>
