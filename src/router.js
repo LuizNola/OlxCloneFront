@@ -1,5 +1,7 @@
 import react from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
+
+import RouterHandler  from './components/RouterHandler'
 
 import Home from './pages/Home/index'
 import About from './pages/About/index'
@@ -11,29 +13,35 @@ import AdPage from './pages/AdPage/index'
 export default () =>{
     return(
     <Switch>
-        <Route exact path="/">
+        <RouterHandler exact path="/">
             <Home/>
-        </Route>
+        </RouterHandler>
 
-        <Route exact path="/teste">
+        <RouterHandler exact path="/teste">
             <About/>
-        </Route>
+        </RouterHandler>
 
-        <Route exact path="/signin">
+        <RouterHandler exact path="/signin">
             <SingIn/>
-        </Route>
+        </RouterHandler>
         
-        <Route exact path="/signup">
+        <RouterHandler exact path="/signup">
             <SingUp/>
-        </Route>
+        </RouterHandler>
 
-        <Route exact path="/ad/:id">
+        <RouterHandler exact path="/ad/:id">
             <AdPage />
-        </Route>
+        </RouterHandler>
 
-        <Route>
+        
+        <RouterHandler private exact path="/post-an-ad">
+            <About />
+        </RouterHandler>
+
+
+        <RouterHandler>
             <NotFound/>
-        </Route>
+        </RouterHandler>
     </Switch>
     )
 }
