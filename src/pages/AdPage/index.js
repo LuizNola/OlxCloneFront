@@ -20,7 +20,9 @@ const SignIn = () => {
 
     useEffect(() => {
         const getAdInfo = async (id) => {
+            console.log(id)
             const json = await api.getAd(id, true);
+            console.log(json)
             setAdInfo(json);
             setLoading(false);
         }

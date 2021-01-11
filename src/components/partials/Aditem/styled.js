@@ -16,6 +16,8 @@ export const Item = styled.div`
         transform: scale(0.99);
         transition: all .2s;
 
+        border:1px solid #ccc;
+
         .item-image img{
             width: 100%;
             border-radius:5px;

@@ -10,6 +10,7 @@ import SingIn from './pages/SingIn/index'
 import SingUp from './pages/SingUp/index'
 import AdPage from './pages/AdPage/index'
 import AddAd from './pages/AddAd/index'
+import Ads from './pages/Ads/index'
 
 export default () =>{
     return(
@@ -34,7 +35,10 @@ export default () =>{
             <AdPage />
         </RouterHandler>
 
-        
+        <RouterHandler exact path="/ads">
+            <Ads />
+        </RouterHandler>
+
         <RouterHandler private exact path="/post-an-ad">
             <AddAd />
         </RouterHandler>

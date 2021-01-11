@@ -1,14 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { PageArea } from './styled';
+import { useHistory } from 'react-router-dom'
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents'
 import useApi from '../../helpers/olxAPI';
 import MaskedInput from 'react-text-mask'
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 
 const SignIn = () => {
-    const api = useApi();
 
+    const api = useApi();
     const fileField = useRef(); 
+    const history = useHistory();
 
     const [ categories, setCategories ] = useState([])
 
@@ -36,18 +38,47 @@ const SignIn = () => {
         event.preventDefault();
         setDisabled(true);
         setError('');
-/*
-        const json = await api.login(email, password);
+        let errors = [];
 
-        if (json.error) {
-            setError(json.error);
-        } else {
-            doLogin(json.token, rememberPassword);
-            window.location.href = '/';
+        if(!title.trim()){
+            errors.push('Sem titulo')
         }
 
-        setDisabled(false);
-        */
+        if(!category){
+            errors.push('Sem categoria')
+        }
+
+        if(errors.length === 0){
+
+            const Fdata = new FormData();
+
+            Fdata.append('title', title)
+            Fdata.append('price', price)
+            Fdata.append('priceneg', priceNeg)
+            Fdata.append('desc', desc)
+            Fdata.append('cat', category)
+
+            if(fileField.current.files.length > 0){
+                for(let i = 0; i < fileField.current.files.length; i++){
+                    Fdata.append('img', fileField.current.files[i])
+                }
+            }
+
+            const json = await api.addAd(Fdata)
+            if(!json.error){
+                history.push(`/ad/${json.id}`);
+                return;
+            }else{
+                setError(json.error);
+            }
+
+        }else{
+            setError(errors.join("\n"))
+        }
+
+        setDisabled(false)
+
+
     }
 
     const priceMask = createNumberMask({
