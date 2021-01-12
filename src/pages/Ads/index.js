@@ -68,7 +68,8 @@ const Home = () => {
 
     useEffect(() => {
         setOpacity(0.3)
-        
+        setCurrentPage(1)
+
         let queryString = []
 
         if (q) {
@@ -87,9 +88,9 @@ const Home = () => {
         if (timer) {
             clearTimeout(timer);
         }
-        
+        console.log(currentPage)
         timer = setTimeout(getAdsList, 800)
-        setCurrentPage(1)
+        
         
     }, [q, cat, state])
 

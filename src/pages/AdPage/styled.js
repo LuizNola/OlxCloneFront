@@ -37,15 +37,13 @@ export const PageArea = styled.div`
             width: 350px !important;
         }
 
-        .each-slide{
+        .each-slide img{
             display:flex;
             align-items:center;
-            justify-content: center;
-
-            width: 400px;
-            height: 320px;
-
-            background-size: cover;
+            justify-content:center;
+            
+            background-size:cover;
+            height:320px;
         }
        }
        .adInfo{ 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import 'react-slideshow-image/dist/styles.css';
 import { Slide } from 'react-slideshow-image';
 import { PageArea, Fake, OthersArea, BreadChumb } from './styled';
 import { PageContainer } from '../../components/MainComponents';
-import 'react-slideshow-image/dist/styles.css';
 import useApi from '../../helpers/olxAPI';
 
 import AdItem from '../../components/partials/Aditem/index'
@@ -63,14 +63,13 @@ const SignIn = () => {
                         <div className="adImg">
                             {loading && <Fake height={300} />}
                             {adInfo.images &&
-                                <Slide>
-                                    {adInfo.images.map((img, k) => {
-                                        return (
-                                            <div key={k} className="each-slide">
-                                                <img src={img} alt="{adInfo.title}" />
-                                            </div>)
-                                    })}
-                                </Slide>
+                               <Slide>
+                               {adInfo.images.map((img, k) => 
+                                   <div key={k} className="each-slide">
+                                       <img src={img} alt=""/>
+                                   </div>
+                               )}
+                           </Slide>
                             }
                         </div>
                         <div className="adInfo">

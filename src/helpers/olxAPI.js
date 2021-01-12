@@ -131,6 +131,13 @@ const OlxAPI = {
         )
 
         return json
+    },
+
+    getUser:async () => {
+        const json = await apiFetchGet(
+            '/user/me',
+        )
+        return json
     }
     
 }
