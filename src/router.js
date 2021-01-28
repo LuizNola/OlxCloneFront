@@ -11,7 +11,6 @@ import SingUp from './pages/SingUp/index'
 import AdPage from './pages/AdPage/index'
 import AddAd from './pages/AddAd/index'
 import Ads from './pages/Ads/index'
-import MyAccount from './pages/MyAccount/index'
 
 export default () =>{
     return(
@@ -43,11 +42,6 @@ export default () =>{
         <RouterHandler private exact path="/post-an-ad">
             <AddAd />
         </RouterHandler>
-
-        <RouterHandler private exact path="/my-account">
-            <MyAccount />
-        </RouterHandler>
-
 
         <RouterHandler>
             <NotFound/>

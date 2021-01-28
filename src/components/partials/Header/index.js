@@ -28,9 +28,6 @@ const Header = () => {
                         {logged &&
                             <>
                                 <li>
-                                    <Link to="/my-account">Minha Conta</Link>
-                                </li>
-                                <li>
                                     <button onClick = {handleLogout}>Sair</button>
                                 </li>
                                 <li >
