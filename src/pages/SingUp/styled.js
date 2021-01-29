@@ -26,6 +26,10 @@ export const PageArea = styled.div`
 
 
                 padding-right: 20px;
+
+                @media(max-width:425px){
+                    width: 100px;
+                }
             }
 
             .area--input{

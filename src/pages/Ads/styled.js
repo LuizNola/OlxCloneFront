@@ -9,6 +9,10 @@ export const PageArea = styled.div`
     width: 250px;
     margin-right: 20px;
 
+    @media (max-width:425px){
+        width: 200px;
+    }
+
     .filterName{
         font-size: 20px;
         margin: 10px 0;
@@ -72,7 +76,13 @@ export const PageArea = styled.div`
         
         .AdItem{ 
             width: 25%;
+            @media (max-width:425px){
+                width: 100%;
+            }
         }
+
+       
+        
      }
      
      

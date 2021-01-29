@@ -14,6 +14,10 @@ export const SearchArea = styled.div`
         box-shadow: 1px 1px 1px 0.3 rgba(0,0,0,0.2);
         border-radius: 5px;
 
+        @media(max-width:426px){
+            margin: 8px;        
+        }
+
         form{
             flex: 1;
             display:flex;
@@ -29,14 +33,27 @@ export const SearchArea = styled.div`
 
                 font-size: 15px;
                 color: #000;
+
+                @media(max-width:426px){
+                    margin-right: 10px;
+                }
+
             }
 
             input{
                 flex: 1;
                 padding: 0 10px;
+
+                @media(max-width:375px){
+                    padding: 0;
+                }
+            
             }
             select {
                 width: 100px;
+                @media(max-width:426px){
+                    width: 50px;
+                }
             }
             button{
                 height: 40px;
@@ -51,6 +68,15 @@ export const SearchArea = styled.div`
                 border-radius:5px;
 
                 cursor:pointer;
+
+                @media(max-width:426px){
+                    padding: 0 10px;
+                }
+                 @media(max-width:375px){
+                    padding: 0 2px;
+                    width: 30px;
+                }
+            
             }
         }
     }
@@ -71,6 +97,8 @@ export const SearchArea = styled.div`
             text-decoration: none;
 
             margin-bottom:10px;
+
+
 
             img{
                 width: 60px;
@@ -97,6 +125,10 @@ export const PageArea = styled.div`
 
         .AdItem{ 
             width: 25%;
+            
+            @media(max-width:426px){
+                width: 50%;
+            }
         }
     }
     .See-all-link{

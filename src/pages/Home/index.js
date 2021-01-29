@@ -48,7 +48,7 @@ const Home = () => {
                 <PageContainer>
                     <div className="search-box">
                         <form method="GET" action="/ads">
-                            <input type="text" name="q" placeholder="O que você procura?" />
+                            <input type="text" name="q" placeholder=" O que você procura?" />
                             <select name="state">
                                 {stateLoc.map((i, k) => {
                                     return (
@@ -56,7 +56,7 @@ const Home = () => {
                                     )
                                 })}
                             </select>
-                            <button>Pesquisar</button>
+                            <button>OK</button>
                         </form>
                     </div>
                     <div className="category-list">

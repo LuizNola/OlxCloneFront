@@ -10,12 +10,19 @@ export const PageArea = styled.div`
 
         padding: 10px;
 
+        @media(max-width:425px){
+            
+        }
+
         .area{ 
             display:flex;
             align-items:center;
 
+
             padding: 10px;
             max-width: 500px;
+            
+
 
             .area--title{
                 width: 200px;
@@ -24,8 +31,11 @@ export const PageArea = styled.div`
                 font-weight: bold;
                 font-size: 14px;
 
-
                 padding-right: 20px;
+
+                @media(max-width:425px){
+                    width: 100px;
+                }
             }
 
             .area--input{
@@ -47,6 +57,8 @@ export const PageArea = styled.div`
                         border: 1px solid #333; 
                         color: #333;
                     }
+
+
                 
                 }
                 button{

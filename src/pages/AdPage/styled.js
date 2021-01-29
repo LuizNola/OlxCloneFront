@@ -11,6 +11,14 @@ export const PageArea = styled.div`
    display: flex;
    margin-top: 20px;
 
+   @media (max-width:425px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
    .box{ 
        display: flex;
 
@@ -21,11 +29,30 @@ export const PageArea = styled.div`
 
        border-radius: 5px;
        box-shadow: 0 0 4px #999;
+
+       @media (max-width:425px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
    }
 
    .leftSide{ 
        flex: 1;
        margin-right: 20px;
+
+       
+       @media (max-width:425px){
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+
+            margin-right: 0px;
+        }
 
        .adImg{
         width: 350px;
@@ -33,8 +60,18 @@ export const PageArea = styled.div`
 
         margin-right:20px;
 
+        @media (max-width:425px){
+                width: 300px;
+                margin-right: 0px;
+            }
+
         .adImg img{
-            width: 350px !important;
+            width: 350px;
+
+            @media (max-width:425px){
+                width: 300px;
+            }
+            
         }
 
         .each-slide img{
@@ -112,14 +149,20 @@ export const PageArea = styled.div`
 `
 
 export const OthersArea = styled.div`
+
     h2{
         font-size: 20px;
     }
     .list{
         display: flex;
+        flex-wrap: wrap;
     }
     .AdItem{
         width: 25%;
+        
+        @media(max-width:425px){
+            width: 50%;
+        }
     }
 `
 

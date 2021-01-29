@@ -66,7 +66,7 @@ const SignIn = () => {
                                <Slide>
                                {adInfo.images.map((img, k) => 
                                    <div key={k} className="each-slide">
-                                       <img src={img} alt=""/>
+                                        <img src={img} alt=""/>
                                    </div>
                                )}
                            </Slide>
@@ -93,6 +93,7 @@ const SignIn = () => {
                     </div>
 
                 </div>
+                
                 <div className="rigthSide">
                     <div className="box">
                         {loading && <Fake height={100} />}
